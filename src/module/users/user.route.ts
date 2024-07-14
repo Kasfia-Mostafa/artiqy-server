@@ -1,3 +1,4 @@
+
 import express from "express";
 import { UserControllers } from "./user.controller";
 import validateRequest from "../../middleware/validateRequest";
@@ -13,7 +14,7 @@ router.post(
 
 router.post(
   "/login",
-  // validateRequest(UserValidation.loginValidationSchema),
+  validateRequest(UserValidation.loginValidationSchema),
   UserControllers.loginUser
 );
 

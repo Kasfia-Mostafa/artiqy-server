@@ -2,14 +2,23 @@ import { Model } from "mongoose";
 import { Role } from "./user.constant";
 
 export interface TUser {
-  name: string;
+  username: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  phone: string;
   role: keyof typeof Role;
-  address: string;
+  phone?: string;
+  address?: string;
+  profilePicture?: string;
+  coverPicture?: string;
+  about?: string;
+  livesIn?: string;
+  worksAt?: string;
+  relationship?: string;
+  followers?: string[];
+  following?: string[];
 }
-
 export interface UserModel extends Model<TUser> {
   isUserExistsByCustomEmail(email: string): Promise<TUser>;
   isPasswordMatched(
